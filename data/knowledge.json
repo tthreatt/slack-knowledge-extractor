@@ -1,0 +1,299 @@
+[
+  {
+    "id": "knowledge_1749668570.430109",
+    "originalMessage": {
+      "id": "1749668570.430109",
+      "text": "Cross posting for the commercial team as I agree with Paul that these changes will be helpful.\n\n<https://providertrust.slack.com/archives/C06TC9CAEP5/p1749653859631429>",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-06-11T19:02:50.430Z"
+    },
+    "category": "decisions",
+    "summary": "Cross posting for the commercial team as I agree with Paul that these changes will be helpful.\n\n<htt...",
+    "keyPoints": [
+      "Cross posting for the commercial team as I agree with Paul that these changes will be helpful",
+      "<https://providertrust",
+      "com/archives/C06TC9CAEP5/p1749653859631429>"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.8,
+    "extractedAt": "2025-06-16T16:32:09.244Z"
+  },
+  {
+    "id": "knowledge_1749650128.191539",
+    "originalMessage": {
+      "id": "1749650128.191539",
+      "text": "<@UA3GJJ33M> <@U8UU31STC>\n\nFYI. &gt; <https://providertrust.slack.com/archives/C06TC9CAEP5/p1749649976016449?thread_ts=1749646562.029979&amp;cid=C06TC9CAEP5>",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-06-11T13:55:28.191Z",
+      "thread_ts": "1749650128.191539"
+    },
+    "category": "resources",
+    "summary": "<@UA3GJJ33M> <@U8UU31STC>\n\nFYI. &gt; <https://providertrust.slack.com/archives/C06TC9CAEP5/p17496499...",
+    "keyPoints": [
+      "<@UA3GJJ33M> <@U8UU31STC>\n\nFYI",
+      "&gt; <https://providertrust",
+      "com/archives/C06TC9CAEP5/p1749649976016449"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:32:09.445Z"
+  },
+  {
+    "id": "knowledge_1749649317.489449",
+    "originalMessage": {
+      "id": "1749649317.489449",
+      "text": "Hi all!\n\nFor anyone attending today's NCQA Update / DNPI Demo session, we have *Johnny Cash* booked. However, the invite list has grown a decent bit, so also booked *Opry* for overflow if we don't have enough room in Johnny Cash.",
+      "user": "UA3GJJ33M",
+      "username": "Colby Shaw",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-06-11T13:41:57.489Z",
+      "thread_ts": "1749649317.489449"
+    },
+    "category": "announcements",
+    "summary": "Hi all!\n\nFor anyone attending today's NCQA Update / DNPI Demo session, we have *Johnny Cash* booked....",
+    "keyPoints": [
+      "For anyone attending today's NCQA Update / DNPI Demo session, we have *Johnny Cash* booked",
+      "However, the invite list has grown a decent bit, so also booked *Opry* for overflow if we don't have enough room in Johnny Cash"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Colby Shaw",
+    "confidence": 0.8,
+    "extractedAt": "2025-06-16T16:32:09.546Z"
+  },
+  {
+    "id": "knowledge_1748536878.404289",
+    "originalMessage": {
+      "id": "1748536878.404289",
+      "text": "*F/U: DynamicNPI Commercial/Product/Eng/Data Alignment | 5/14 @ 11:00A*\n\n*`FYI: This meeting sequence is over. We are transitioning to operations/implementation. This channel may be archived 7/1/25.`*\n\n*Next steps*\n• <https://url.us.m.mimecastprotect.com/s/uaQVCqxWV6iXwxyliXhVfETjX9?domain=us06tasks.zoom.us|Aubrey to send out communication about ABMS screenshot changes to affected clients after getting approval from marketing.>\n• <https://url.us.m.mimecastprotect.com/s/objSCrkWEBf2JzRoC4inf4U4rC?domain=us06tasks.zoom.us|Mike to assist in getting marketing approval for ABMS screenshot change communication.>\n• <https://url.us.m.mimecastprotect.com/s/fJX8Cv26YRfAVPnKtAsrfQwacL?domain=us06tasks.zoom.us|Johnny to add Mike to the channel discussing ABMS screenshot changes.>\n• <https://url.us.m.mimecastprotect.com/s/WbNsCwp6E2Uyr4E9H1t3fJSH1a?domain=us06tasks.zoom.us|Jacob and Dan to continue coordinating the upload of Blue Cross South Carolina profiles.>\n• <https://url.us.m.mimecastprotect.com/s/jVK8CxkWV8fxNg5whWu1fyYT_0?domain=us06tasks.zoom.us|Nancy's team to sync up with Michelle regarding the UI workflow for profiles without credentials.>\n• <https://url.us.m.mimecastprotect.com/s/jjC2CyPW67iLVQPkhPCGfxeImw?domain=us06tasks.zoom.us|Tony to maintain and share the most recent version of the Dynamic NPI operating plan document.>\n• <https://url.us.m.mimecastprotect.com/s/Vm0oCzpgBQU4VyY9IMFZf9_IzK?domain=us06tasks.zoom.us|Colby to work with Tony and Nancy to gather information on the flat file delivery process for contracts.>\n• <https://url.us.m.mimecastprotect.com/s/mrjBCADEQWtEqPK2HBHkfGoZRo?domain=us06tasks.zoom.us|Colby to draft initial contract language for flat file delivery and share with Mike, Tony, and Nancy for review.>\n• <https://url.us.m.mimecastprotect.com/s/0EckCBBG8OU82kXBhQIGf26H_e?domain=us06tasks.zoom.us|Jenny's team (including Tyler) to engage with Tony for consulting on Dynamic NPI scoping.>\n• <https://url.us.m.mimecastprotect.com/s/mCaNCDkKY6f3GWL0CvSmfjgrHE?domain=us06tasks.zoom.us|Michelle to create a Loom video as homework for the team learning about Dynamic NPI documentation.>\n• <https://url.us.m.mimecastprotect.com/s/85tlCERLZ1tpXz8MIkT1f7qWCo?domain=us06tasks.zoom.us|Nancy to schedule a huddle early next week to discuss Dynamic NPI documentation and scoping with Jenny and relevant team members.>\n*Quick recap*\nThe team reviewed progress on various projects including the dynamic NPI feature set, PT App UI development, and public API implementation, with discussions about documentation needs and commercial considerations. Updates were shared on multiple ongoing initiatives including Medicaid monitoring, ABMS certifications, and profile management, with particular focus on maintaining proper documentation and communication about available features. The team concluded by discussing the transition of the dynamic NPI project to a commercial version, emphasizing the importance of proper documentation, engagement between teams, and maintaining clear communication about API capabilities and delivery processes.\n\ncc: <@U03JREJJ65D> <@U070KELB45Q> <@U04PJMWD7PH> <@U033NHT65NU> <@U07HM2DJBL2> <@U07V2QDD7U7> <@U08KA3V5XCZ> <@U084DBXS3SA> <@UA3GJJ33M> <@U03UUHD1XEX> <@U05SEQMFMQF> <@U0346M7910B> <@UBTB5MQBD> <@U05A1T6P51T> <@U07K9QV8TKP> <@U01Q3CJ288H> <@U0346M7910B> <@U060AL0L77Y><@U084DBXS3SA> <@U04LKGMNWMQ><@U4QG2115L><@U02PBABNEEN>",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-29T16:41:18.404Z",
+      "thread_ts": "1748536878.404289"
+    },
+    "category": "decisions",
+    "summary": "*F/U: DynamicNPI Commercial/Product/Eng/Data Alignment | 5/14 @ 11:00A*\n\n*`FYI: This meeting sequenc...",
+    "keyPoints": [
+      "*F/U: DynamicNPI Commercial/Product/Eng/Data Alignment | 5/14 @ 11:00A*\n\n*`FYI: This meeting sequence is over",
+      "We are transitioning to operations/implementation",
+      "This channel may be archived 7/1/25"
+    ],
+    "actionItems": [
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "us|Tony to maintain and share the most recent version of the Dynamic NPI operating plan document",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "domain=us06tasks",
+      "us|Nancy to schedule a huddle early next week to discuss Dynamic NPI documentation and scoping with Jenny and relevant team members"
+    ],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.8,
+    "extractedAt": "2025-06-16T16:33:54.723Z"
+  },
+  {
+    "id": "knowledge_1748536703.033769",
+    "originalMessage": {
+      "id": "1748536703.033769",
+      "text": "<@UA3GJJ33M> <@U04LKGMNWMQ>\n\nhere is what i have documented RE: client solutioning; i.e., file specs.\n<https://providertrust.atlassian.net/wiki/spaces/PRODUCT/pages/4628643863/2025-1+DynamiC+NPI+Operating+Plan#Client-Solutioning>\n\nDevan is working on a project plan for Molina and using this channel to comms in <#C08TTLM9PM5|>\n\nWe have this channel for Highmark <#C08LQ6554E6|>\n\nI know that <@U05SEQMFMQF> has been involved more in the Highmark export.\n\nThis is as far as I can take it at the moment.\n\ncc: <@U4QG2115L>",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-29T16:38:23.033Z"
+    },
+    "category": "resources",
+    "summary": "<@UA3GJJ33M> <@U04LKGMNWMQ>\n\nhere is what i have documented RE: client solutioning; i.e., file specs...",
+    "keyPoints": [
+      "<@UA3GJJ33M> <@U04LKGMNWMQ>\n\nhere is what i have documented RE: client solutioning; i",
+      "<https://providertrust",
+      "This is as far as I can take it at the moment"
+    ],
+    "actionItems": [
+      "net/wiki/spaces/PRODUCT/pages/4628643863/2025-1+DynamiC+NPI+Operating+Plan#Client-Solutioning>\n\nDevan is working on a project plan for Molina and using this channel to comms in <#C08TTLM9PM5|>\n\nWe have this channel for Highmark <#C08LQ6554E6|>\n\nI know that <@U05SEQMFMQF> has been involved more in the Highmark export"
+    ],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:54.823Z"
+  },
+  {
+    "id": "knowledge_1748370941.300359",
+    "originalMessage": {
+      "id": "1748370941.300359",
+      "text": "Coming out of last week's DNPI Commercial meeting, <@UA3GJJ33M> and I met with <@U034VB9PCBF> & <@U062VREFQ21> today along with <@U28PAN1QE> to map out updates in the NCQA requirements. I have copied below the notes from our meeting as an FYI for the group. We have several to-dos/next steps after this conversation, and will bring an update on these to the next DNPI Commercial meeting. This topic is not specifically about the DNPI product itself, but I think it will _and should_ have impact on how we go to market and how we educate our clients.\nfyi <@UN58QJ4DS> <@U8UU31STC> <@U084DBXS3SA>\n\n*Quick recap*\nThe team discussed significant changes to NCQA health plan guidelines, particularly focusing on credentialing requirements. They explored various monitoring requirements including new requirements to monitor license expiration and check for sanctions on a monthly basis. The conversation ended with discussions about the opportunity for product enhancements and plans to create educational materials to help clients understand the new requirements.\n\n*Next steps*\n• Donna to reach out to Tsveta with questions the team had about how \"adverse events\" is defined and what the specific license expiration monitoring requirement is. \n• Donna to move her NCQA requirements documents to a shared folder to be accessible to all PT team members. \n• Commercial Dynamic NPI team to bring topic/updates to next meeting. \n• Marketing and Sales teams to continue discussions on how to optimize messaging regarding these guideline changes. \n• Donna and Marketing to explore the possibility of either doing a webinar with Tsveta or building an FAQ doc of some sort about the new guidelines. \n• Team to potentially schedule another meeting to discuss the delegation aspect of the new guidelines. \n*Summary*\n\n*NCQA Credentialing Guidelines Discussion*\nThe team discussed changes to NCQA health plan guidelines, focusing on credentialing and recredentialing sections that apply to their work. Donna highlighted a key change regarding data collection software, noting that using software to collect information does not constitute delegation unless the entity also reviews the credentialing information on behalf of the organization. This distinction is important for their argument with BCBS Tennessee, where they aim to establish that ProviderTrust is not a delegate but rather a source providing collected information for review by the health plan or its committees.\n\n*Board Certification Verification Time Limits*\nDonna and Bluebird discussed the verification time limit of 120 days for board certifications and the ability to use expired certifications for education and training verification. They explored the implications of the new requirements stating that state sanctions and restrictions on licenses must be verified for the past five years during credentialing, which could change how clients such as BCBS Tennessee think about the Dynamic NPI product. Bluebird highlighted the need to now monitor all licenses a practitioner has held in the past five years during credentialing, which contrasts with some clients' preferences to focus only on the state where they are based.\n\n*NCQA Credential Monitoring Requirements*\nDonna and Bluebird discussed NCQA requirements for monitoring healthcare provider credentials, focusing on the need to check for board actions, sanctions, and adverse events every 30 days _using primary sources._ They clarified that while license expiration date monitoring is now required ongoing, it doesn't necessarily require primary source checks. The discussion revealed conflicting interpretations between BCBS South Carolina's approach and Health Partners' practices, leading them to consider scheduling a meeting with Health Partners to clarify these requirements.\n\n*2025 Accreditation Standards Discussion*\nDonna and Bluebird discussed the 2025 standards and guidelines for accreditation and certification in credentialing and provider networks. They considered creating a webinar or FAQ document to help clients understand these new requirements. Donna agreed to reach out to Tsveta with specific questions about adverse events and license expiration. Bluebird planned to post an update in the dynamic NPI channel and suggested discussing next steps in the next commercial dynamic NPI meeting. They also talked about moving documents into a more accessible folder.",
+      "user": "U03JREJJ65D",
+      "username": "Allison Callis",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-27T18:35:41.300Z",
+      "thread_ts": "1748370941.300359",
+      "reactions": [
+        "+1",
+        "eyes"
+      ]
+    },
+    "category": "decisions",
+    "summary": "Coming out of last week's DNPI Commercial meeting, <@UA3GJJ33M> and I met with <@U034VB9PCBF> & <@U0...",
+    "keyPoints": [
+      "Coming out of last week's DNPI Commercial meeting, <@UA3GJJ33M> and I met with <@U034VB9PCBF> & <@U062VREFQ21> today along with <@U28PAN1QE> to map out updates in the NCQA requirements",
+      "I have copied below the notes from our meeting as an FYI for the group",
+      "We have several to-dos/next steps after this conversation, and will bring an update on these to the next DNPI Commercial meeting"
+    ],
+    "actionItems": [
+      "This topic is not specifically about the DNPI product itself, but I think it will _and should_ have impact on how we go to market and how we educate our clients",
+      "fyi <@UN58QJ4DS> <@U8UU31STC> <@U084DBXS3SA>\n\n*Quick recap*\nThe team discussed significant changes to NCQA health plan guidelines, particularly focusing on credentialing requirements",
+      "The conversation ended with discussions about the opportunity for product enhancements and plans to create educational materials to help clients understand the new requirements",
+      "• Team to potentially schedule another meeting to discuss the delegation aspect of the new guidelines",
+      "*Summary*\n\n*NCQA Credentialing Guidelines Discussion*\nThe team discussed changes to NCQA health plan guidelines, focusing on credentialing and recredentialing sections that apply to their work",
+      "This distinction is important for their argument with BCBS Tennessee, where they aim to establish that ProviderTrust is not a delegate but rather a source providing collected information for review by the health plan or its committees",
+      "They explored the implications of the new requirements stating that state sanctions and restrictions on licenses must be verified for the past five years during credentialing, which could change how clients such as BCBS Tennessee think about the Dynamic NPI product",
+      "Bluebird highlighted the need to now monitor all licenses a practitioner has held in the past five years during credentialing, which contrasts with some clients' preferences to focus only on the state where they are based",
+      "*NCQA Credential Monitoring Requirements*\nDonna and Bluebird discussed NCQA requirements for monitoring healthcare provider credentials, focusing on the need to check for board actions, sanctions, and adverse events every 30 days _using primary sources",
+      "Bluebird planned to post an update in the dynamic NPI channel and suggested discussing next steps in the next commercial dynamic NPI meeting"
+    ],
+    "relevantContext": "Discussion in #proj-dnpi-status by Allison Callis",
+    "confidence": 0.8,
+    "extractedAt": "2025-06-16T16:33:55.072Z"
+  },
+  {
+    "id": "knowledge_1748016876.099419",
+    "originalMessage": {
+      "id": "1748016876.099419",
+      "text": "Want to ensure all are in the know. We are paused on all profile creation until this is resolved. This most likely will require client management.\n\nCc: <@U4QG2115L> <@UA3GJJ33M> <@U0346M7910B> \n\n<https://providertrust.slack.com/archives/C06H08TTRNU/p1748015917987779|https://providertrust.slack.com/archives/C06H08TTRNU/p1748015917987779>",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-23T16:14:36.099Z",
+      "reactions": [
+        "eyes"
+      ]
+    },
+    "category": "resources",
+    "summary": "Want to ensure all are in the know. We are paused on all profile creation until this is resolved. Th...",
+    "keyPoints": [
+      "Want to ensure all are in the know",
+      "We are paused on all profile creation until this is resolved",
+      "This most likely will require client management"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:55.197Z"
+  },
+  {
+    "id": "knowledge_1747927149.675219",
+    "originalMessage": {
+      "id": "1747927149.675219",
+      "text": "Agenda for DNPI Commercial today.\n\nReview following to-dos from last meeting:\n\n• Marketing and Tony to work on a brief (one pager but not one pager) for new single search capability\n• Marketing to think about / work on a \"look-up tool\" using single search for AHIP booth\n• Colby and Katy to work on pricing for single search\n• Allison and Rachel W to map out updates in NCQA requirements\nBeyond this, no material DNPI updates from a sales standpoint, so would propose the following:\n• Marketing updates specific to AHIP\n• Product updates over last couple weeks\n    ◦ Single search is live\n    ◦ Any roadmap updates\n<@U03JREJJ65D> <@U084DBXS3SA> <@U8UU31STC> <@U0346M7910B> <@U28PAN1QE> <@U053BBM8U> <@U4QG2115L> <@U02PBABNEEN> <@U034VB9PCBF> <@UBTB5MQBD> <@U01Q3CJ288H> <@UN58QJ4DS> <@U04LKGMNWMQ> <@U07V2QDD7U7> <@UJ4AJBBHT> <@UCHPEM97B> <@U03UUHD1XEX>",
+      "user": "UA3GJJ33M",
+      "username": "Colby Shaw",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-22T15:19:09.675Z"
+    },
+    "category": "resources",
+    "summary": "Agenda for DNPI Commercial today.\n\nReview following to-dos from last meeting:\n\n• Marketing and Tony ...",
+    "keyPoints": [
+      "Agenda for DNPI Commercial today"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Colby Shaw",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:55.354Z"
+  },
+  {
+    "id": "knowledge_1747832781.758469",
+    "originalMessage": {
+      "id": "1747832781.758469",
+      "text": "As mentioned here, full single instant search is available in production in the PT client as your admin user.\n\n<https://providertrust.slack.com/archives/C06TC9CAEP5/p1747832457037709|Message>\n\nyou should be able to demo a full workflow from search by NPI to running a report.\n\nYou may have questions, I may have answers. Let's make sure you are enabled to speak to this functionality well.",
+      "user": "UN58QJ4DS",
+      "username": "Tony Threatt",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-05-21T13:06:21.758Z",
+      "thread_ts": "1747832781.758469",
+      "reactions": [
+        "blue_heart",
+        "saluting_face"
+      ]
+    },
+    "category": "resources",
+    "summary": "As mentioned here, full single instant search is available in production in the PT client as your ad...",
+    "keyPoints": [
+      "As mentioned here, full single instant search is available in production in the PT client as your admin user",
+      "<https://providertrust",
+      "com/archives/C06TC9CAEP5/p1747832457037709|Message>\n\nyou should be able to demo a full workflow from search by NPI to running a report"
+    ],
+    "actionItems": [
+      "com/archives/C06TC9CAEP5/p1747832457037709|Message>\n\nyou should be able to demo a full workflow from search by NPI to running a report"
+    ],
+    "relevantContext": "Discussion in #proj-dnpi-status by Tony Threatt",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:55.558Z"
+  },
+  {
+    "id": "knowledge_1749144912.970299",
+    "originalMessage": {
+      "id": "1749144912.970299",
+      "text": "Recording of today's call.\n\n<https://providertrust.zoom.us/rec/share/FC8LTArTDI-IaHmyPhidQySM432F4oOSAuq98Ecjuj7oyPP3DljQw9Rd9eehgeg.y0hQUnNPe3r2PGvx>\nPasscode: .q?mRv6J",
+      "user": "UA3GJJ33M",
+      "username": "Colby Shaw",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-06-05T17:35:12.970Z",
+      "reactions": [
+        "eyes"
+      ]
+    },
+    "category": "resources",
+    "summary": "Recording of today's call.\n\n<https://providertrust.zoom.us/rec/share/FC8LTArTDI-IaHmyPhidQySM432F4oO...",
+    "keyPoints": [
+      "Recording of today's call",
+      "<https://providertrust",
+      "us/rec/share/FC8LTArTDI-IaHmyPhidQySM432F4oOSAuq98Ecjuj7oyPP3DljQw9Rd9eehgeg"
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Colby Shaw",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:56.049Z"
+  },
+  {
+    "id": "knowledge_1749094328.734109",
+    "originalMessage": {
+      "id": "1749094328.734109",
+      "text": "Agenda for DNPI Commercial tomorrow:\n\nReview following to-dos from last meeting:\n\n• ~Marketing and Tony to work on a brief (one pager but not one pager) for new single search capability~\n• ~Marketing to think about / work on a \"look-up tool\" using single search for AHIP booth~\n• ~Allison and Rachel W to map out updates in NCQA requirements (voice over update)~\nGeneral Updates:\n• Sales pipeline\n• ~Marketing updates~ \n• Product updates (if any)\nAdditional Topics to Discuss:\n• Single / Bulk search (MW)\n    ◦ Demo\n    ◦ GTM Messaging\n    ◦ Client Pipeline / Ops timing for supporting\n• Discussion around repurposing this meeting going forward to make sure we’re getting the most out of it \n• ~Personal intros of dnpi to all top clients (MW)~\n• NP/RN licenses and our offer (Tony)\n<@U03JREJJ65D> <@U084DBXS3SA> <@U8UU31STC> <@U0346M7910B> <@U28PAN1QE> <@U053BBM8U> <@U4QG2115L> <@U02PBABNEEN> <@U034VB9PCBF> <@UBTB5MQBD> <@U01Q3CJ288H> <@UN58QJ4DS> <@U04LKGMNWMQ> <@U07V2QDD7U7> <@UJ4AJBBHT> <@UCHPEM97B> <@U03UUHD1XEX>",
+      "user": "UA3GJJ33M",
+      "username": "Colby Shaw",
+      "channel": "C06K815HYM9",
+      "channelName": "proj-dnpi-status",
+      "timestamp": "2025-06-05T03:32:08.734Z",
+      "thread_ts": "1749094328.734109"
+    },
+    "category": "resources",
+    "summary": "Agenda for DNPI Commercial tomorrow:\n\nReview following to-dos from last meeting:\n\n• ~Marketing and T...",
+    "keyPoints": [
+      "Agenda for DNPI Commercial tomorrow:\n\nReview follo..."
+    ],
+    "actionItems": [],
+    "relevantContext": "Discussion in #proj-dnpi-status by Colby Shaw",
+    "confidence": 0.7,
+    "extractedAt": "2025-06-16T16:33:56.216Z"
+  }
+]

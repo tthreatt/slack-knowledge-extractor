@@ -26,7 +26,8 @@ const knowledgeStore = new KnowledgeStore();
 // API Routes
 app.get('/api/channels', async (req: Request, res: Response) => {
   try {
-    const channels = await slackExtractor.getChannels();
+    const forceRefresh = req.query.refresh === 'true';
+    const channels = await slackExtractor.getChannels(forceRefresh);
     res.json(channels);
   } catch (error) {
     console.error('Error fetching channels:', error);

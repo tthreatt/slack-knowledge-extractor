@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slack Knowledge Extractor</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8f9fa;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        .header {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+        
+        .header p {
+            color: #7f8c8d;
+            font-size: 1.1em;
+        }
+        
+        .section {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: 600;
+            color: #555;
+        }
+        
+        input, select, button {
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            border-color: #3498db;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+        }
+        
+        button {
+            background: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+        
+        button:hover {
+            background: #2980b9;
+        }
+        
+        button:disabled {
+            background: #95a5a6;
+            cursor: not-allowed;
+        }
+        
+        .channels-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 15px;
+            margin: 20px 0;
+            max-height: 400px;
+            overflow-y: auto;
+            padding: 10px;
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+        }
+        
+        .channel-item {
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            border: 2px solid #e1e8ed;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            background: white;
+        }
+        
+        .channel-item:hover {
+            border-color: #3498db;
+            transform: translateY(-2px);
+        }
+        
+        .channel-item input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+        }
+        
+        .results {
+            margin-top: 30px;
+        }
+        
+        .knowledge-item {
+            border: 1px solid #e1e8ed;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 15px;
+            background: #fafbfc;
+            transition: all 0.3s ease;
+        }
+        
+        .knowledge-item:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .knowledge-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        
+        .category-badge {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+        }
+        
+        .category-decisions { background: #e8f5e8; color: #2e7d32; }
+        .category-discussions { background: #fff3e0; color: #f57c00; }
+        .category-resources { background: #e3f2fd; color: #1976d2; }
+        .category-processes { background: #f3e5f5; color: #7b1fa2; }
+        .category-announcements { background: #ffebee; color: #c62828; }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+        }
+        
+        .stat-card {
+            text-align: center;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: bold;
+            color: #3498db;
+        }
+        
+        .stat-label {
+            color: #666;
+            margin-top: 5px;
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 40px;
+            color: #666;
+        }
+        
+        .loading::after {
+            content: '';
+            display: inline-block;
+            width: 30px;
+            height: 30px;
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #3498db;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .error {
+            background: #ffebee;
+            color: #c62828;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+        
+        .success {
+            background: #e8f5e8;
+            color: #2e7d32;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+        }
+
+        /* Dark mode styles */
+        @media (prefers-color-scheme: dark) {
+            body {
+                background: #1a1a1a;
+                color: #e1e1e1;
+            }
+            
+            .header, .section {
+                background: #2d2d2d;
+                box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+            }
+            
+            .header h1 {
+                color: #e1e1e1;
+            }
+            
+            .header p {
+                color: #a0a0a0;
+            }
+            
+            .section h2 {
+                color: #e1e1e1;
+                border-bottom-color: #3498db;
+            }
+            
+            label {
+                color: #e1e1e1;
+            }
+            
+            input, select {
+                background: #3d3d3d;
+                border-color: #4d4d4d;
+                color: #e1e1e1;
+            }
+            
+            .channel-item {
+                background: #3d3d3d;
+                border-color: #4d4d4d;
+            }
+            
+            .channels-grid {
+                border-color: #4d4d4d;
+            }
+            
+            .knowledge-item {
+                background: #3d3d3d;
+                border-color: #4d4d4d;
+            }
+            
+            .stat-card {
+                background: #3d3d3d;
+            }
+            
+            .stat-label {
+                color: #a0a0a0;
+            }
+            
+            .error {
+                background: #3d1a1a;
+                color: #ff8a8a;
+            }
+            
+            .success {
+                background: #1a3d1a;
+                color: #8aff8a;
+            }
+        }
+
+        /* Improved mobile responsiveness */
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            .header {
+                padding: 20px;
+            }
+            
+            .header h1 {
+                font-size: 2em;
+            }
+            
+            .section {
+                padding: 15px;
+            }
+            
+            .channels-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            
+            .knowledge-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 Slack Knowledge Extractor</h1>
+            <p>Transform your Slack conversations into searchable organizational knowledge</p>
+            <p><small>Press '?' to show keyboard shortcuts</small></p>
+        </div>
+
+        <div class="section">
+            <h2>📊 Dashboard</h2>
+            <div id="stats" class="stats-grid">
+                <div class="loading">Loading stats...</div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>🔄 Extract Knowledge</h2>
+            <div class="form-group">
+                <label>Select Channels to Process:</label>
+                <div class="channel-search">
+                    <input type="text" id="channelSearch" placeholder="Search channels..." onkeyup="filterChannels()">
+                </div>
+                <div id="channels" class="channels-grid">
+                    <div class="loading">Loading channels...</div>
+                </div>
+            </div>
+            
+            <div class="form-group">
+                <label for="daysBack">Days of History:</label>
+                <select id="daysBack">
+                    <option value="7">Last 7 days</option>
+                    <option value="30" selected>Last 30 days</option>
+                    <option value="90">Last 90 days</option>
+                </select>
+            </div>
+            
+            <button id="extractBtn" onclick="extractKnowledge()">Extract Knowledge</button>
+            
+            <div id="extractResult"></div>
+        </div>
+
+        <div class="section">
+            <h2>🔍 Search Knowledge</h2>
+            <div class="form-group">
+                <label for="searchQuery">Search Query:</label>
+                <input type="text" id="searchQuery" placeholder="Enter search terms..." onkeyup="handleSearchKeyup(event)">
+            </div>
+            
+            <div class="form-group">
+                <label for="categoryFilter">Filter by Category:</label>
+                <select id="categoryFilter" onchange="performSearch()">
+                    <option value="">All Categories</option>
+                    <option value="decisions">Decisions</option>
+                    <option value="discussions">Discussions</option>
+                    <option value="resources">Resources</option>
+                    <option value="processes">Processes</option>
+                    <option value="announcements">Announcements</option>
+                </select>
+            </div>
+            
+            <button onclick="performSearch()">Search</button>
+            
+            <div id="searchResults" class="results"></div>
+        </div>
+    </div>
+
+    <script>
+        let channels = [];
+        let stats = {};
+        let isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            // Debug log to help troubleshoot
+            console.log('Key pressed:', e.key, 'Ctrl:', e.ctrlKey, 'Meta:', e.metaKey);
+            
+            // Only trigger shortcuts if not typing in an input or textarea
+            if (e.target.tagName === 'INPUT' || e.target.tagName === 'TEXTAREA') {
+                return;
+            }
+
+            if (e.key === '?' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                alert(`Keyboard Shortcuts:
+- ?: Show this help
+- /: Focus search
+- e: Extract knowledge
+- Esc: Clear search
+- Enter: Submit search`);
+            } else if (e.key === '/' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                document.getElementById('searchQuery').focus();
+            } else if (e.key.toLowerCase() === 'e' && !e.ctrlKey && !e.metaKey) {
+                e.preventDefault();
+                extractKnowledge();
+            } else if (e.key === 'Escape') {
+                document.getElementById('searchQuery').value = '';
+                document.getElementById('searchResults').innerHTML = '';
+            }
+        });
+
+        // Load initial data
+        loadChannels();
+        loadStats();
+
+        async function loadChannels() {
+            try {
+                const response = await fetch('/api/channels');
+                channels = await response.json();
+                
+                // Sort channels alphabetically by name
+                channels.sort((a, b) => a.name.localeCompare(b.name));
+                
+                renderChannels(channels);
+            } catch (error) {
+                document.getElementById('channels').innerHTML = '<div class="error">Failed to load channels</div>';
+            }
+        }
+
+        function renderChannels(channelsToRender) {
+            const channelsDiv = document.getElementById('channels');
+            channelsDiv.innerHTML = channelsToRender.map(channel => `
+                <div class="channel-item">
+                    <input type="checkbox" id="channel_${channel.id}" value="${channel.id}">
+                    <label for="channel_${channel.id}">#${channel.name}</label>
+                </div>
+            `).join('');
+        }
+
+        function filterChannels() {
+            const searchTerm = document.getElementById('channelSearch').value.toLowerCase();
+            const filteredChannels = channels.filter(channel => 
+                channel.name.toLowerCase().includes(searchTerm)
+            );
+            renderChannels(filteredChannels);
+        }
+
+        async function loadStats() {
+            try {
+                const response = await fetch('/api/stats');
+                stats = await response.json();
+                
+                const statsDiv = document.getElementById('stats');
+                statsDiv.innerHTML = `
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.totalKnowledgeItems}</div>
+                        <div class="stat-label">Knowledge Items</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${Object.keys(stats.categoryCounts).length}</div>
+                        <div class="stat-label">Categories</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${stats.topContributors.length}</div>
+                        <div class="stat-label">Contributors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${Object.keys(stats.channelStats).length}</div>
+                        <div class="stat-label">Channels</div>
+                    </div>
+                `;
+            } catch (error) {
+                document.getElementById('stats').innerHTML = '<div class="error">Failed to load stats</div>';
+            }
+        }
+
+        async function extractKnowledge() {
+            const selectedChannels = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                .map(cb => cb.value);
+            
+            if (selectedChannels.length === 0) {
+                alert('Please select at least one channel');
+                return;
+            }
+
+            const daysBack = parseInt(document.getElementById('daysBack').value);
+            const extractBtn = document.getElementById('extractBtn');
+            const resultDiv = document.getElementById('extractResult');
+
+            extractBtn.disabled = true;
+            extractBtn.textContent = 'Extracting...';
+            resultDiv.innerHTML = '<div class="loading">Processing messages...</div>';
+
+            try {
+                const response = await fetch('/api/extract', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ channelIds: selectedChannels, daysBack })
+                });
+
+                const result = await response.json();
+                
+                if (result.success) {
+                    resultDiv.innerHTML = `
+                        <div class="success">
+                            Successfully processed ${result.totalMessages} messages and extracted ${result.knowledgeItems} knowledge items from channels: ${result.channels.join(', ')}
+                        </div>
+                    `;
+                    loadStats(); // Refresh stats
+                } else {
+                    resultDiv.innerHTML = `<div class="error">Extraction failed</div>`;
+                }
+            } catch (error) {
+                resultDiv.innerHTML = `<div class="error">Error: ${error.message}</div>`;
+            } finally {
+                extractBtn.disabled = false;
+                extractBtn.textContent = 'Extract Knowledge';
+            }
+        }
+
+        function handleSearchKeyup(event) {
+            if (event.key === 'Enter') {
+                performSearch();
+            }
+        }
+
+        async function performSearch() {
+            const query = document.getElementById('searchQuery').value;
+            const category = document.getElementById('categoryFilter').value;
+            const resultsDiv = document.getElementById('searchResults');
+
+            if (!query.trim()) {
+                resultsDiv.innerHTML = '';
+                return;
+            }
+
+            resultsDiv.innerHTML = '<div class="loading">Searching...</div>';
+
+            try {
+                const params = new URLSearchParams({ q: query });
+                if (category) params.append('category', category);
+
+                const response = await fetch(`/api/search?${params}`);
+                const results = await response.json();
+
+                if (results.length === 0) {
+                    resultsDiv.innerHTML = '<div class="error">No knowledge items found matching your search</div>';
+                    return;
+                }
+
+                resultsDiv.innerHTML = results.map(item => `
+                    <div class="knowledge-item">
+                        <div class="knowledge-header">
+                            <span class="category-badge category-${item.category}">${item.category}</span>
+                            <small>Confidence: ${Math.round(item.confidence * 100)}%</small>
+                        </div>
+                        <h4>${item.summary}</h4>
+                        <p><strong>Channel:</strong> #${item.originalMessage.channelName} | <strong>Author:</strong> ${item.originalMessage.username} | <strong>Date:</strong> ${new Date(item.originalMessage.timestamp).toLocaleDateString()}</p>
+                        ${item.keyPoints.length > 0 ? `
+                            <div><strong>Key Points:</strong></div>
+                            <ul>${item.keyPoints.map(point => `<li>${point}</li>`).join('')}</ul>
+                        ` : ''}
+                        ${item.actionItems.length > 0 ? `
+                            <div><strong>Action Items:</strong></div>
+                            <ul>${item.actionItems.map(action => `<li>${action}</li>`).join('')}</ul>
+                        ` : ''}
+                        <details>
+                            <summary>Original Message</summary>
+                            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                ${item.originalMessage.text}
+                            </div>
+                        </details>
+                    </div>
+                `).join('');
+
+            } catch (error) {
+                resultsDiv.innerHTML = `<div class="error">Search failed: ${error.message}</div>`;
+            }
+        }
+
+        // Load recent knowledge on page load
+        window.addEventListener('load', async () => {
+            try {
+                const response = await fetch('/api/knowledge');
+                const knowledge = await response.json();
+                
+                if (knowledge.length > 0) {
+                    document.getElementById('searchResults').innerHTML = `
+                        <h3>Recent Knowledge (${knowledge.slice(0, 10).length} of ${knowledge.length} items)</h3>
+                        ${knowledge.slice(0, 10).map(item => `
+                            <div class="knowledge-item">
+                                <div class="knowledge-header">
+                                    <span class="category-badge category-${item.category}">${item.category}</span>
+                                    <small>Confidence: ${Math.round(item.confidence * 100)}%</small>
+                                </div>
+                                <h4>${item.summary}</h4>
+                                <p><strong>Channel:</strong> #${item.originalMessage.channelName} | <strong>Author:</strong> ${item.originalMessage.username} | <strong>Date:</strong> ${new Date(item.originalMessage.timestamp).toLocaleDateString()}</p>
+                                ${item.keyPoints.length > 0 ? `
+                                    <div><strong>Key Points:</strong></div>
+                                    <ul>${item.keyPoints.map(point => `<li>${point}</li>`).join('')}</ul>
+                                ` : ''}
+                                <details>
+                                    <summary>Original Message</summary>
+                                    <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-top: 10px;">
+                                        ${item.originalMessage.text}
+                                    </div>
+                                </details>
+                            </div>
+                        `).join('')}
+                    `;
+                }
+            } catch (error) {
+                console.error('Failed to load recent knowledge:', error);
+            }
+        });
+    </script>
+</body>
+</html> 

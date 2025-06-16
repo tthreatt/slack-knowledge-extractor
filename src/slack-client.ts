@@ -1,9 +1,14 @@
 import { WebClient } from '@slack/web-api';
 import { ExtractedMessage } from './types';
+import * as fs from 'fs';
+import * as path from 'path';
 
 export class SlackExtractor {
   private client: WebClient;
   private rateLimitDelay = 1000; // 1 second between requests
+  private channelsCache: Array<{ id: string; name: string; memberCount?: number }> | null = null;
+  private lastCacheUpdate: number = 0;
+  private readonly CACHE_DURATION = 24 * 60 * 60 * 1000; // 24 hours in milliseconds
 
   constructor(token: string) {
     this.client = new WebClient(token);
@@ -18,7 +23,49 @@ export class SlackExtractor {
     await this.delay(retryAfter * 1000);
   }
 
-  async getChannels(): Promise<Array<{ id: string; name: string; memberCount?: number }>> {
+  private loadChannelsFromCache(): Array<{ id: string; name: string; memberCount?: number }> {
+    try {
+      const cachePath = path.join(process.cwd(), 'channels.json');
+      const data = fs.readFileSync(cachePath, 'utf8');
+      return JSON.parse(data);
+    } catch (error) {
+      console.error('Error loading channels from cache:', error);
+      return [];
+    }
+  }
+
+  private async saveChannelsToCache(channels: Array<{ id: string; name: string; memberCount?: number }>): Promise<void> {
+    try {
+      const cachePath = path.join(process.cwd(), 'channels.json');
+      fs.writeFileSync(cachePath, JSON.stringify(channels, null, 2));
+      this.lastCacheUpdate = Date.now();
+    } catch (error) {
+      console.error('Error saving channels to cache:', error);
+    }
+  }
+
+  private isCacheValid(): boolean {
+    return this.channelsCache !== null && 
+           (Date.now() - this.lastCacheUpdate) < this.CACHE_DURATION;
+  }
+
+  async getChannels(forceRefresh: boolean = false): Promise<Array<{ id: string; name: string; memberCount?: number }>> {
+    // Return cached channels if available and valid
+    if (!forceRefresh && this.isCacheValid()) {
+      return this.channelsCache!;
+    }
+
+    // Try to load from cache file first
+    if (!forceRefresh) {
+      const cachedChannels = this.loadChannelsFromCache();
+      if (cachedChannels.length > 0) {
+        this.channelsCache = cachedChannels;
+        this.lastCacheUpdate = Date.now();
+        return cachedChannels;
+      }
+    }
+
+    // If no valid cache, fetch from Slack API
     try {
       let allChannels: any[] = [];
       let cursor: string | undefined;
@@ -95,14 +142,20 @@ export class SlackExtractor {
         }
       }
 
-      // Sort channels by member count
-      return allChannels
+      // Sort channels by member count and cache the result
+      const sortedChannels = allChannels
         .map(channel => ({
           id: channel.id!,
           name: channel.name!,
           memberCount: channel.num_members
         }))
         .sort((a, b) => (b.memberCount || 0) - (a.memberCount || 0));
+
+      // Save to cache
+      this.channelsCache = sortedChannels;
+      await this.saveChannelsToCache(sortedChannels);
+
+      return sortedChannels;
     } catch (error) {
       console.error('\n❌ Error fetching channels:', error);
       return [];
