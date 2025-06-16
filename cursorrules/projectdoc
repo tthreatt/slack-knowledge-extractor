@@ -1,0 +1,118 @@
+# Slack Knowledge Extraction MVP - 4 Hour Build Plan
+
+## Vision Statement
+Build an MVP that automatically extracts, categorizes, and surfaces organizational knowledge from Slack conversations, creating searchable documentation and insights that would otherwise remain buried in chat history.
+
+## Core Value Proposition
+Transform ephemeral Slack conversations into persistent, searchable organizational memory - solving the "I know we discussed this somewhere" problem that costs teams hours weekly.
+
+## 4-Hour Sprint Breakdown
+
+### Hour 1: Foundation & Setup (60 min)
+**Core Infrastructure**
+- [ ] Set up basic Node.js/Express server with TypeScript
+- [ ] Install and configure Slack SDK (@slack/web-api)
+- [ ] Create Slack app with necessary OAuth scopes:
+  - `channels:history` (read public channel messages)
+  - `groups:history` (read private channel messages user has access to)
+  - `users:read` (get user info for attribution)
+- [ ] Set up environment variables and basic authentication flow
+- [ ] Test connection with simple API call to verify setup
+
+**Time Box: Stop at 60 minutes regardless of completion state**
+
+### Hour 2: Data Extraction Core (60 min)
+**Slack Data Pipeline**
+- [ ] Build message fetching function with pagination
+- [ ] Implement channel discovery (start with 3-5 most active channels)
+- [ ] Create basic message filtering (exclude bots, system messages)
+- [ ] Add rate limiting to respect Slack API limits
+- [ ] Build simple data structure for extracted messages:
+  ```typescript
+  interface ExtractedMessage {
+    id: string;
+    text: string;
+    user: string;
+    channel: string;
+    timestamp: string;
+    thread_ts?: string;
+    reactions?: string[];
+  }
+  ```
+- [ ] Test extraction on sample channel
+
+### Hour 3: Knowledge Processing (60 min)
+**Intelligence Layer**
+- [ ] Integrate Claude MCP for text analysis
+- [ ] Build knowledge extraction pipeline:
+  - Identify decision points in conversations
+  - Extract action items and outcomes
+  - Categorize discussions by topic/department
+  - Flag important announcements or policy changes
+- [ ] Create simple categorization system:
+  - `decisions` - Final decisions made
+  - `discussions` - Ongoing debates/considerations  
+  - `resources` - Shared links, documents, tools
+  - `processes` - How-to information and workflows
+- [ ] Build basic deduplication (similar conversations)
+- [ ] Create JSON output structure for processed knowledge
+
+### Hour 4: MVP Interface & Demo (60 min)
+**User Interface & Validation**
+- [ ] Build simple web interface with:
+  - Search functionality across extracted knowledge
+  - Filter by category, channel, date range
+  - Display context (original message + thread)
+  - Export functionality (JSON/CSV)
+- [ ] Create demo dataset with 2-3 channels of real data
+- [ ] Build simple analytics dashboard:
+  - Knowledge extraction metrics
+  - Most active knowledge contributors
+  - Knowledge categories breakdown
+- [ ] Document setup process for other teams
+- [ ] Record demo video showing value proposition
+
+## Technical Stack Decisions
+
+### Core Technology
+- **Backend**: Node.js + Express (fast setup, great Slack SDK)
+- **AI Processing**: Claude MCP (most capable for knowledge extraction)
+- **Database**: JSON files initially (fastest for MVP, easy to inspect)
+- **Frontend**: Simple HTML/CSS/JS (no framework overhead)
+- **Hosting**: Local development (deploy later)
+
+### MCP Integration Points
+1. **Slack MCP**: For secure Slack data access if available
+2. **Claude MCP**: For intelligent content analysis
+3. **File System MCP**: For knowledge base storage and retrieval
+
+## Success Metrics for 4-Hour MVP
+- [ ] Successfully extract messages from 3+ Slack channels
+- [ ] Process 100+ messages through knowledge extraction
+- [ ] Demonstrate search functionality works on extracted knowledge
+- [ ] Show clear categorization of at least 3 knowledge types
+- [ ] Complete end-to-end demo in under 3 minutes
+
+## Post-MVP Expansion Ideas (Future Sprints)
+- Real-time processing of new messages
+- Integration with company wiki/documentation tools
+- Advanced search with semantic similarity
+- Automated digest generation
+- Team-specific knowledge clustering
+- Integration with other communication tools (Discord, Teams)
+
+## Risk Mitigation
+- **Slack API Rate Limits**: Implement exponential backoff, batch processing
+- **Large Channel History**: Start with recent messages only (last 30 days)
+- **Processing Time**: Use async processing, show progress indicators
+- **Data Privacy**: Process only channels user has access to, respect permissions
+
+## Definition of Done
+✅ MVP demonstrates clear value: "Find that discussion about X from 3 months ago"
+✅ Reproducible setup process documented
+✅ Demo-ready with real organizational data
+✅ Identified clear next steps for productization
+
+---
+
+*Remember: This is an MVP - prioritize working functionality over perfect code. Ship something that proves the concept and generates user feedback.*
